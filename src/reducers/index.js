@@ -4,18 +4,20 @@ import{
     LAUNCH_DATA_FAILURE
 } from '../actions/index';
 
-export const initialState = {
-    flightNumber: '',
-    missionName: '',
-    rocket: '',
-    launchSite: '',
-    launchSuccess: '',
-    details: '',
+ const initialState = {
+    // flightNumber: '',
+    // missionName: '',
+    // rocketName: '',
+    // launchSite: '',
+    // launchSuccess: '',
+    // details: '',
+    flightData: [],
     error: '',
     isFetching: false
     };
 
 export const reducer = (state = initialState, action) => {
+    console.log('reducer', action);
     switch(action.type){
         case LAUNCH_DATA_START:
             return{
@@ -25,7 +27,7 @@ export const reducer = (state = initialState, action) => {
         case LAUNCH_DATA_SUCCESS:
             return{
                 ...state,
-               ...action.payload,
+                flightData: action.payload,
                 error: '',
                 isFetching: false                
             };

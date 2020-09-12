@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 //import connect
 import { connect } from 'react-redux';
@@ -8,15 +8,13 @@ import { fetchLaunchData } from '../actions/index';
 
 
 
-const Launches = ({fetchLaunchData, flightNumber,missionName, rocket, launchSite, launchSuccess,    details, error, isFetching}) => {
-    useEffect(() => {
-        fetchLaunchData();
-    },[fetchLaunchData]);
+const Launches = props => {
 
     const fetchLaunch = e => {
         e.preventDefault();
-        fetchLaunchData();
-    };
+        props.fetchLaunchData()
+    }
+    console.log(fetchLaunchData());
 
     return(
         <div>
@@ -25,12 +23,16 @@ const Launches = ({fetchLaunchData, flightNumber,missionName, rocket, launchSite
             </div>
             <section className='launchContainer'>
             <div className='launchData'>
-                <h3>Flight Number: {flightNumber}</h3>
-                <p>Mission Name: {missionName}</p>
-                <p>Rocket: {rocket}</p>
-                <p>Launch Site: {launchSite}</p>
-                <p>Launch Success: {launchSuccess}</p>
-                <p>Launch Details: {details}</p>
+                {props.flightData.map(flightData => (
+                    <div>
+                    <h3>Flight Number: {flightData.flightNumber}</h3>
+                    <p>Mission Name: {flightData.missionName}</p>
+                    <p>Rocket: {flightData.rocket}</p>
+                    <p>Launch Site: {flightData.launchSite}</p>
+                    <p>Launch Success: {flightData.launchSuccess}</p>
+                    <p>Launch Details: {flightData.details}</p>
+                    </div>
+                ))}
             </div>
             </section>
         </div>
@@ -39,16 +41,11 @@ const Launches = ({fetchLaunchData, flightNumber,missionName, rocket, launchSite
 
 const mapStateToProps = state => {
     return {
-        flightNumber: state.flightNumber,
-        missionName: state.missionName,
-        rocket: state.rocket,
-        launchSite: state.launchSite,
-        launchSuccess: state.launchSuccess,
-        details: state.details,
-        error: state.error,
-        isFetching: state.isFetching
+        flightData: state.flightData
 
     };
 };
 
-export default connect(mapStateToProps, {fetchLaunchData: fetchLaunchData})(Launches);
+export default connect(
+    mapStateToProps,
+    {fetchLaunchData: fetchLaunchData})(Launches);
