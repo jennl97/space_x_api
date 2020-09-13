@@ -1,10 +1,11 @@
-import axios from 'axios';
 
+import axios from 'axios';
 
 //set action types here
 export const LAUNCH_DATA_START = "LAUNCH_DATA_START";
 export const LAUNCH_DATA_SUCCESS = "LAUNCH_DATA_SUCCESS";
 export const LAUNCH_DATA_FAILURE = "LAUNCH_DATA_FAILURE";
+
 
 
 //set action creator with Thunk middleware
@@ -25,8 +26,9 @@ export const fetchLaunchData = () => dispatch => {
                     flightDataArray.details = item.details;
                     // console.log(flightDataArray);
                     return (flightDataArray)
-                });
                 
+                })           
+
                 // console.log(flightData);
                 dispatch({
                     type: LAUNCH_DATA_SUCCESS, 

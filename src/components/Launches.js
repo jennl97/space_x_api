@@ -14,7 +14,9 @@ const Launches = props => {
         e.preventDefault();
         props.fetchLaunchData()
     }
-    console.log(fetchLaunchData());
+    // console.log(fetchLaunchData());
+
+    
 
     return(
         <div>
@@ -24,7 +26,8 @@ const Launches = props => {
             <section className='launchContainer'>
             <div className='launchData'>
                 {props.flightData.map(flightData => (
-                    <div>
+                    
+                    <div key={flightData.flightNumber}>
                     <h3>Flight Number: {flightData.flightNumber}</h3>
                     <p>Mission Name: {flightData.missionName}</p>
                     <p>Rocket: {flightData.rocket}</p>
@@ -42,7 +45,6 @@ const Launches = props => {
 const mapStateToProps = state => {
     return {
         flightData: state.flightData
-
     };
 };
 

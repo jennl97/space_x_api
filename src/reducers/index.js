@@ -5,18 +5,13 @@ import{
 } from '../actions/index';
 
  const initialState = {
-    // flightNumber: '',
-    // missionName: '',
-    // rocketName: '',
-    // launchSite: '',
-    // launchSuccess: '',
-    // details: '',
     flightData: [],
     error: '',
     isFetching: false
     };
 
 export const reducer = (state = initialState, action) => {
+
     console.log('reducer', action);
     switch(action.type){
         case LAUNCH_DATA_START:
