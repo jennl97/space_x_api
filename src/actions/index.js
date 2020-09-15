@@ -23,7 +23,7 @@ export const fetchLaunchData = () => dispatch => {
                     flightDataArray.launchSite = item.launch_site.site_name_long;
                     flightDataArray.launchSuccess = item.launch_success;
                     flightDataArray.details = item.details;
-                    // console.log(flightDataArray);
+                    console.log(flightDataArray);
                     return (flightDataArray)
                 });
                 

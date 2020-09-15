@@ -30,6 +30,7 @@ const Launches = props => {
                     <p>Rocket: {flightData.rocket}</p>
                     <p>Launch Site: {flightData.launchSite}</p>
                     <p>Launch Success: {flightData.launchSuccess}</p>
+                    
                     <p>Launch Details: {flightData.details}</p>
                     </div>
                 ))}
