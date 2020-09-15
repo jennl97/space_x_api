@@ -1,13 +1,22 @@
+h1, h2, h3, h4, h5, p {
+  font-family: 'Barlow', sans-serif;   
+}
+
+h3{
+  font-size: 25px;
+  text-transform: uppercase;
+}
 .App {
   text-align: center;
+  margin-top: 2.5em;
 }
 
 .App-logo {
-  width: 90%;
+  width: 50%;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,7 +30,7 @@
 }
 
 body{
-  background-color: #282c34;
+  background-color: black;
 }
 
 .launchContainer{
@@ -38,11 +47,14 @@ body{
 }
 
 .launchButton{
-  font-size: 20px;
-    border-radius: 15px;
+  font-family: 'Barlow', sans-serif;
+    font-size: 14px;
     font-weight: bold;
-    background-color: #005288;
+    background-color: black;
     color: white;
-    border: none;
-    padding: 10px;
+    border: 2px solid white;
+    padding: 15px 30px;
+    margin: 30px 0 0;
+    text-transform: uppercase;
+    min-width: 130px;
 }
